@@ -29,7 +29,7 @@ void HexToBinStr(unsigned char* hexStr, unsigned char* binStr, int lenHex)
 
 task main()
 {
-	int bin[257];
+	unsigned char bin[257];
 	int i;
 	unsigned char bits[32]=
 	{
@@ -51,7 +51,7 @@ task main()
                 setMotorTarget(x_motor, 15*16, -50);
                 waitUntilMotorStop(x_motor);
             }
-            if(bin[i]=="1")
+            if(bin[i]=='1')
             {
                 resetMotorEncoder(z_motor);
                 setMotorTarget(z_motor, 90, 50);
@@ -70,5 +70,4 @@ task main()
             break;
         }
     }
-  	break;
 }
