@@ -43,7 +43,7 @@ task main()
             if(i%16==0&&i!=0)
             {
                 resetMotorEncoder(y_motor);
-                setMotorTarget(y_motor, 15, 50);
+                setMotorTarget(y_motor, 10, 50);
                 waitUntilMotorStop(y_motor);
                 resetMotorEncoder(x_motor);
                 setMotorTarget(x_motor, 15*16, -50);
