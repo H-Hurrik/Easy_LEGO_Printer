@@ -2,7 +2,7 @@
 #pragma config(Motor,  motorB,          y_motor,     tmotorEV3_Large, PIDControl, encoder)
 #pragma config(Motor,  motorC,          z_motor,    tmotorEV3_Medium, PIDControl, encoder)
 
-void HexToBinStr(unsigned char* hexStr, unsigned char* binStr, int lenHex)
+void HexToBin(unsigned char* hexStr, unsigned char* binStr, int lenHex)
 {
     memset(binStr, '0', lenHex * 8);
     unsigned char hexChar[2];
@@ -34,7 +34,7 @@ task main()
 	0x00,0x00,0x00,0x40,0x00,0x40,0x7E,0x40,0x08,0x7C,0x08,0x88,0x09,0x48,0x28,0x48,
     0x2E,0x48,0x28,0x50,0x28,0x50,0x28,0x20,0x2E,0x50,0x70,0x88,0x01,0x04,0x00,0x00,
 	};
-	HexToBinStr(bits, bin, 32);
+	HexToBin(bits, bin, 32);
 	
     while(true)
     {
@@ -57,7 +57,7 @@ task main()
                 resetMotorEncoder(z_motor);
                 setMotorTarget(z_motor, 90, -50);
                 waitUntilMotorStop(z_motor);
-                sleep(1000);
+                sleep(200);
             }
             resetMotorEncoder(x_motor);
             setMotorTarget(x_motor, 15, 50);
